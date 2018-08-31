@@ -1,0 +1,28 @@
+﻿@model Fiap06.Web.MVC.Models.Animal
+@{
+    ViewBag.Title = "Alterar";
+}
+
+<h2>Alterar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(a => a.AnimalId)
+    <div class="form-group">
+        @Html.LabelFor(a => a.Nome)
+        @Html.TextBoxFor(a => a.Nome, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Raca)
+        @Html.TextBoxFor(a => a.Raca, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(a => a.Peso)
+        @Html.TextBoxFor(a => a.Peso, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(a => a.Castrado)
+        @Html.LabelFor(a => a.Castrado)
+    </div>
+    <input type="submit" value="Editar" class="btn btn-primary" />
+}

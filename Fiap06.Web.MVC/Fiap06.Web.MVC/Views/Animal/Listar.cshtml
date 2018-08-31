@@ -1,0 +1,72 @@
+﻿@model List<Fiap06.Web.MVC.Models.Animal>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+@using (Html.BeginForm("Pesquisar", "Animal", FormMethod.Get, new { @class = "form-inline" }))
+{
+    @Html.TextBox("Nome", null, new { @class = "form-control", placeholder = "Digite um nome" })
+    <input type="submit" value="Pesquisar" class="btn btn-primary" />
+}
+<table class="table table-striped">
+    <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Peso</th>
+        <th>Raça</th>
+        <th>Castrado</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AnimalId</td>
+            <td>@item.Nome</td>
+            <td>@item.Peso</td>
+            <td>@item.Raca</td>
+            <td>@(item.Castrado ? "Sim" : "Não")</td>
+            <td>
+                @Html.ActionLink("Editar", "Alterar", new { id = item.AnimalId },
+               new { @class = "btn btn-info btn-xs" })
+                <button onclick="codigoAnimal.value = @item.AnimalId" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal">
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Confirmação</h4>
+      </div>
+      <div class="modal-body">
+        Deseja excluir o animal?
+      </div>
+      <div class="modal-footer">
+          @using (Html.BeginForm("Excluir", "Animal"))
+          {
+              <input type="hidden" name="id" id="codigoAnimal" />
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Excluir</button>
+          }
+
+      </div>
+    </div>
+  </div>
+</div>
