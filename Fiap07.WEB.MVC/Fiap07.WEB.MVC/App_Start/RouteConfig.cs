@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Fiap07.WEB.MVC
+namespace Fiap07.Web.MVC
 {
     public class RouteConfig
     {

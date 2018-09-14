@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Fiap07.WEB.MVC.Models
+namespace Fiap07.Web.MVC.Models
 {
     public class Tecnico
     {

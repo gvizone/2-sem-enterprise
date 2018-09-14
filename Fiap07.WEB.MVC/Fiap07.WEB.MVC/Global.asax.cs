@@ -1,4 +1,4 @@
-﻿using Fiap07.WEB.MVC.Persistencia;
+﻿using Fiap07.Web.MVC.Persistencia;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace Fiap07.WEB.MVC
+namespace Fiap07.Web.MVC
 {
     public class MvcApplication : System.Web.HttpApplication
     {

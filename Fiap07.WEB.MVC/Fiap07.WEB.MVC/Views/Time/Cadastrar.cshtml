@@ -1,21 +1,23 @@
-﻿@model Fiap07.WEB.MVC.Models.Time
+﻿@model Fiap07.Web.MVC.Models.Time
+
 @{
     ViewBag.Title = "Cadastrar";
 }
 
-<h2>Cadastrar</h2>
-@if(TempData["msg"] != null)
+<h2>Cadastro de Técnico</h2>
+
+@if (TempData["msg"] != null)
 {
     <div class="alert alert-success">
         @TempData["msg"]
     </div>
 }
 
-@using (@Html.BeginForm()){
-
+@using (Html.BeginForm())
+{
     <div class="form-group">
         @Html.LabelFor(t => t.Nome)
-        @Html.TextBoxFor(t => t.Nome, new { @class = "form-control" })
+        @Html.TextBoxFor(t => t.Nome, new { @class = "form-control"})
     </div>
     <div class="form-group">
         @Html.CheckBoxFor(t => t.Mundial)
@@ -25,13 +27,13 @@
         <legend>Técnico</legend>
         <div class="form-group">
             @Html.LabelFor(t => t.Tecnico.Nome)
-            @Html.TextBoxFor(t => t.Tecnico.Nome, new { @class = "form-control"})
+            @Html.TextBoxFor(t => t.Tecnico.Nome, new { @class = "form-control" })
         </div>
         <div class="form-group">
             @Html.LabelFor(t => t.Tecnico.Salario)
-            @Html.TextBoxFor(t => t.Tecnico.Salario, new { @class = "form-control" })
+            @Html.TextBoxFor(t => t.Tecnico.Salario, new { @class = "form-control"})
         </div>
     </fieldset>
     <input type="submit" value="Cadastrar" class="btn btn-primary" />
-    
 }
+
